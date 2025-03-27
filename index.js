@@ -4,7 +4,7 @@ const { Telegraf } = require('telegraf');
 const mongoose = require('mongoose');
 
 // Connect to MongoDB (replace with your connection string)
-mongoose.connect('process.env.MONGODB_URI', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -20,7 +20,7 @@ const clothingItemSchema = new mongoose.Schema({
 const ClothingItem = mongoose.model('ClothingItem', clothingItemSchema);
 
 // Initialize bot with your token from BotFather
-const bot = new Telegraf('process.env.BOT_TOKEN');
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // Start command
 bot.start((ctx) => {
